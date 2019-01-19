@@ -1,4 +1,4 @@
-mod hmac_sha256;
+pub mod hmac_sha256;
 
 #[cfg(test)]
 mod tests {
