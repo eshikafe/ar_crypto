@@ -63,7 +63,6 @@ fn sha256(msg: &[u8], l: u32) {
     //  Initialize hash values:
     //  The initial hash value H(0) is the following sequence of 32-bit words (which are 
     //  obtained by taking the fractional parts of the square roots of the first eight primes: 2,3,5,7,11,13,17 and 19):
-    
 	let h: [u32; 8] = [
 		0x6a09e667, // h0
 		0xbb67ae85,
@@ -77,8 +76,6 @@ fn sha256(msg: &[u8], l: u32) {
 
     // Initialize array of round constants:
     // These are the first 32 bits of the fractional parts of the cube roots of the first 64 primes.
-     
-
 	let k: [u32; 64] = [
 	   0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
 	   0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
@@ -90,7 +87,6 @@ fn sha256(msg: &[u8], l: u32) {
 	   0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
     ];
 
-     
     //   Pre-processing (Padding): 
     //   pad the message in such away that the result is a multiple of 512 bits long
     //   Suppose the length of the message M, in bits, is L. 
@@ -98,8 +94,6 @@ fn sha256(msg: &[u8], l: u32) {
     //   Append k zero bits, where k is the smallest non-negative solution to the equation L+1+k = 448 mod 512. 
     //   append K '0' bits, where K is the minimum number >= 0 such that L + 1 + K + 64 is a multiple of 512
     //   To this append the 64-bit block which is equal to the number L written in binarys
-    
-
 }
 
 
@@ -109,7 +103,6 @@ fn hmac(K: &u8, data: u8) {
     //  To compute a MAC over the data ‘text’ using the HMAC function, 
     //  the following operation is performed:
     //  MAC(text) = HMAC(K, text) = H((K0 ⊕ opad )|| H((K0 ⊕ ipad) || text))
-
     // Step 1 If the length of K = B: set K0 = K. Go to step 4.
     // Step 2 If the length of K > B: hash K to obtain an L byte string, then append (B-L)
     //        zeros to create a B-byte string K0 (i.e., K0 = H(K) || 00...00). Go to step 4.
@@ -124,7 +117,6 @@ fn hmac(K: &u8, data: u8) {
     //        (K0 ⊕ opad) || H((K0 ⊕ ipad) || text).
     // Step 9 Apply H to the result from step 8:
     //        H((K0 ⊕ opad )|| H((K0 ⊕ ipad) || text)).
-
 
 }
 
